@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="2022 개정 교육과정 진로 선택 과목 생물의 유전 소개와 수업 활동 안내">
+  <title>생물의 유전 | 나를 이해하는 과학</title>
+
+  <style>
+    /* 색상과 글자 크기는 이곳에서 수정하세요. */
+    :root {
+      --background: #F2F8F5;
+      --card: #FFFFFF;
+      --accent: #176B5B;
+      --text: #24342F;
+      --muted: #52645D;
+      --beige: #F5EFE5;
+      --border: #DCE8E1;
+      --radius: 22px;
+      --shadow: 0 8px 28px rgba(24, 67, 53, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", "Malgun Gothic", sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+      word-break: keep-all;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 5px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 10;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: white;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      padding-block: 18px;
+    }
+
+    .brand {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding-block: 5px;
+      font-size: 15px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 82px 0 66px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 24px;
+      padding: 7px 15px;
+      border: 1px solid #C7DED3;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      background: #E7F2EC;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 26px;
+      color: var(--accent);
+      font-size: clamp(36px, 5.5vw, 62px);
+      line-height: 1.22;
+      letter-spacing: -0.045em;
+    }
+
+    h1 span { display: block; }
+
+    .hero-question {
+      margin-bottom: 10px;
+      font-size: clamp(21px, 3vw, 27px);
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      margin-bottom: 27px;
+      color: var(--muted);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .hero-tags span {
+      padding: 5px 13px;
+      border-radius: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* 작은 DNA 장식: 본문 내용과 분리된 장식 요소입니다. */
+    .dna-decoration {
+      position: absolute;
+      top: 74px;
+      right: 0;
+      width: 76px;
+      height: 100px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    main { padding-bottom: 28px; }
+
+    section { margin-bottom: 48px; }
+
+    .section-heading { margin-bottom: 24px; }
+
+    .section-number {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: clamp(25px, 3.5vw, 32px);
+      line-height: 1.4;
+      letter-spacing: -0.035em;
+    }
+
+    .section-note {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .intro-card,
+    .activity-card,
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .intro-card { padding: 27px; }
+
+    .intro-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      line-height: 1.45;
+      letter-spacing: -0.025em;
+    }
+
+    .intro-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .activities {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .activity-card { overflow: hidden; }
+
+    figure { margin: 0; }
+
+    .photo-frame {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      background: #E7F0EA;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-frame img[hidden],
+    .photo-fallback[hidden] {
+      display: none;
+    }
+
+    .photo-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      gap: 8px;
+      padding: 24px;
+      text-align: center;
+      color: var(--accent);
+      background: linear-gradient(135deg, #E6F1EA, #F5EFE5);
+    }
+
+    .photo-fallback strong { font-size: 20px; }
+
+    .photo-fallback span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    figcaption {
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      background: #FAFCFA;
+    }
+
+    .activity-body { padding: 23px; }
+
+    .activity-number {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .activity-body p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .activity-body p:last-child { margin-bottom: 0; }
+
+    .image-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .panel { padding: 32px; }
+
+    .recommend-list,
+    .notice-list {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .recommend-list li {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      margin-top: 3px;
+      border-radius: 50%;
+      background: #E5F1E9;
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .notice-panel {
+      background: var(--beige);
+      border-color: #E8DED0;
+    }
+
+    .notice-list li {
+      position: relative;
+      padding-left: 19px;
+    }
+
+    .notice-list li::before {
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .closing {
+      padding: 44px 24px;
+      border-top: 1px solid #CFE1D7;
+      text-align: center;
+    }
+
+    .closing p {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .closing strong {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(22px, 3vw, 29px);
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .activities { gap: 14px; }
+      .activity-body { padding: 18px; }
+      .dna-decoration { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: calc(100% - 32px); }
+      .header-inner { gap: 10px; }
+      nav { width: 100%; }
+      .nav-links { gap: 4px 16px; }
+      .nav-links a { font-size: 14px; }
+      .hero { padding: 48px 0 42px; }
+      .eyebrow { font-size: 12px; }
+      .intro-grid, .activities { grid-template-columns: 1fr; }
+      .intro-card, .panel { padding: 24px; }
+      .activity-body { padding: 24px; }
+      .image-note { text-align: left; }
+      section { margin-bottom: 38px; }
+      .closing { padding-inline: 10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="생물의 유전 페이지 처음으로">
+        생물의 유전
+      </a>
+
+      <nav aria-label="페이지 메뉴">
+        <ul class="nav-links">
+          <li><a href="#introduction">과목 소개</a></li>
+          <li><a href="#activities">수업 활동</a></li>
+          <li><a href="#recommend">추천 학생</a></li>
+          <li><a href="#before">신청 전 알아두기</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 제목과 소개 문구를 이곳에서 수정하세요. -->
+  <div class="container hero" id="top">
+    <p class="eyebrow">
+      2022 개정 교육과정 진로 선택 과목 | 생물의 유전
+    </p>
+
+    <h1>사람의 유전,<span>나를 이해하는 과학</span></h1>
+
+    <p class="hero-question">우리는 왜 서로 닮고 또 다를까요?</p>
+    <p class="hero-description">
+      사람의 유전 현상에서 출발해 DNA와 유전자,
+      생명공학의 세계를 탐구합니다.
+    </p>
+
+    <div class="hero-tags" aria-label="주요 학습 주제">
+      <span>유전 현상</span>
+      <span>DNA와 유전자</span>
+      <span>생명공학</span>
+      <span>생명윤리</span>
+    </div>
+
+    <svg class="dna-decoration" viewBox="0 0 80 110"
+         fill="none" aria-hidden="true" focusable="false">
+      <path d="M20 5 C70 25 10 40 60 60 C10 80 70 95 20 105"
+            stroke="#176B5B" stroke-width="4"/>
+      <path d="M60 5 C10 25 70 40 20 60 C70 80 10 95 60 105"
+            stroke="#176B5B" stroke-width="4"/>
+      <path d="M27 12 H53 M30 31 H50 M30 48 H50
+               M27 70 H53 M30 87 H50 M27 100 H53"
+            stroke="#176B5B" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <main class="container" id="main">
+    <section id="introduction" aria-labelledby="intro-title">
+      <div class="section-heading">
+        <span class="section-number" aria-hidden="true">01 · DISCOVER</span>
+        <h2 id="intro-title">과목 소개</h2>
+        <p class="section-note">
+          유전의 원리에서 생명공학의 활용까지, 차근차근 연결해 봅니다.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <article class="intro-card">
+          <span class="intro-label">유전 현상</span>
+          <h3>닮음과 다름의 원리</h3>
+          <p>
+            유전 형질이 자손에게 전달되는 원리를 배우고,
+            사람의 유전 현상을 자료로 분석합니다.
+          </p>
+        </article>
+
+        <article class="intro-card">
+          <span class="intro-label">유전물질</span>
+          <h3>생명정보를 담은 DNA</h3>
+          <p>
+            DNA와 염색체의 관계를 이해하고,
+            유전정보가 저장되고 전달되는 과정을 알아봅니다.
+          </p>
+        </article>
+
+        <article class="intro-card">
+          <span class="intro-label">유전자 발현</span>
+          <h3>정보가 생명 현상이 되기까지</h3>
+          <p>
+            유전정보가 단백질로 발현되는 과정과
+            유전자 발현 조절을 배웁니다.
+          </p>
+        </article>
+
+        <article class="intro-card">
+          <span class="intro-label">생명공학과 윤리</span>
+          <h3>기술의 가능성, 함께할 고민</h3>
+          <p>
+            생명공학기술의 활용 사례를 살펴보고,
+            유전정보 활용에 따른 윤리적 문제를 생각합니다.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="activities" aria-labelledby="activities-title">
+      <div class="section-heading">
+        <span class="section-number" aria-hidden="true">02 · EXPLORE</span>
+        <h2 id="activities-title">수업 활동 미리보기</h2>
+        <p class="section-note">
+          실제 활동은 학교 수업 계획에 따라 달라질 수 있습니다.
+        </p>
+      </div>
+
+      <div class="activities">
+        <!-- data-photo 값을 바꾸면 사진 파일 이름이 변경됩니다.
+             확장자는 쓰지 마세요. 예: photo1 -->
+        <article class="activity-card">
+          <figure>
+            <div class="photo-frame">
+              <img data-photo="photo1"
+                   alt="학생들이 가상의 가계도 자료를 함께 분석하는 활동"
+                   hidden>
+              <div class="photo-fallback">
+                <strong>가계도 자료 분석</strong>
+                <span>수업 활동 미리보기</span>
+              </div>
+            </div>
+            <figcaption>가계도 자료 분석</figcaption>
+          </figure>
+          <div class="activity-body">
+            <span class="activity-number">ACTIVITY 01</span>
+            <h3>가계도로 풀어보는 유전</h3>
+            <p>
+              가상의 가계도 자료를 분석하며
+              유전 형질이 전달되는 양상을 추론합니다.
+            </p>
+            <p>
+              자료를 근거로 모둠원과 생각을 비교하고 설명합니다.
+            </p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <figure>
+            <div class="photo-frame">
+              <img data-photo="photo2"
+                   alt="학생들이 DNA 이중나선 모형을 만들며 구조를 탐구하는 활동"
+                   hidden>
+              <div class="photo-fallback">
+                <strong>DNA 모형 탐구</strong>
+                <span>수업 활동 미리보기</span>
+              </div>
+            </div>
+            <figcaption>DNA 모형 탐구</figcaption>
+          </figure>
+          <div class="activity-body">
+            <span class="activity-number">ACTIVITY 02</span>
+            <h3>모형으로 이해하는 DNA</h3>
+            <p>DNA 모형으로 유전물질의 구조를 살펴봅니다.</p>
+            <p>
+              모형과 자료를 활용해 유전정보의 전달과
+              발현 과정을 설명합니다.
+            </p>
+          </div>
+        </article>
+
+        <article class="activity-card">
+          <figure>
+            <div class="photo-frame">
+              <img data-photo="photo3"
+                   alt="학생들이 유전자 검사와 유전정보 보호에 관해 모둠 토론하는 활동"
+                   hidden>
+              <div class="photo-fallback">
+                <strong>생명윤리 모둠 토론</strong>
+                <span>수업 활동 미리보기</span>
+              </div>
+            </div>
+            <figcaption>생명윤리 모둠 토론</figcaption>
+          </figure>
+          <div class="activity-body">
+            <span class="activity-number">ACTIVITY 03</span>
+            <h3>함께 생각하는 생명윤리</h3>
+            <p>유전자 검사와 유전정보 활용 사례를 조사합니다.</p>
+            <p>
+              개인의 유전정보 보호와 생명공학기술의
+              활용에 관해 토론합니다.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <p class="image-note">
+        AI로 생성한 수업 활동 예시 이미지입니다.
+      </p>
+    </section>
+
+    <section id="recommend" aria-labelledby="recommend-title">
+      <div class="section-heading">
+        <span class="section-number" aria-hidden="true">03 · CONNECT</span>
+        <h2 id="recommend-title">이런 학생에게 추천해요</h2>
+      </div>
+
+      <div class="panel">
+        <ul class="recommend-list">
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>가족 간의 닮음과 차이, 사람의 유전 현상이 궁금한 학생</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>DNA와 유전자가 생명 현상에 어떻게 관여하는지 알고 싶은 학생</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>자료를 분석하고 근거를 들어 설명하는 활동을 좋아하는 학생</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>생명과학·의약학·간호·보건·생명공학 등 관련 분야에 관심 있는 학생</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>과학기술이 우리 삶에 미치는 영향을 함께 고민하고 싶은 학생</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="before" aria-labelledby="before-title">
+      <div class="section-heading">
+        <span class="section-number" aria-hidden="true">04 · PREPARE</span>
+        <h2 id="before-title">신청 전 알아두기</h2>
+      </div>
+
+      <div class="panel notice-panel">
+        <ul class="notice-list">
+          <li>
+            생명과학에서 배우는 세포, 염색체, 유전자 등의
+            기초 개념을 이해하면 학습에 도움이 됩니다.
+          </li>
+          <li>
+            개념 학습과 함께 자료 해석, 모형 활동,
+            조사와 토론 등이 이루어질 수 있습니다.
+          </li>
+          <li>
+            유전 문제의 정답뿐 아니라
+            근거를 설명하고 탐구하는 과정도 중요합니다.
+          </li>
+          <li>
+            실제 가족의 질병이나 유전정보를 제출하지 않고,
+            가상 또는 공개된 교육용 자료로 탐구합니다.
+          </li>
+          <li>
+            개설 학년, 학점, 수강 조건과 평가 방법은
+            학교 안내를 확인해 주세요.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="closing">
+      <p>닮음 속의 원리, 다름 속의 가치를 발견하는 시간.</p>
+      <strong>‘생물의 유전’에서 함께 탐구해요!</strong>
+    </div>
+  </main>
+
+  <footer>
+    2022 개정 교육과정 · 생물의 유전 과목 선택 안내
+  </footer>
+
+  <script>
+    /*
+     * 같은 폴더에서 jpg → jpeg → png 순서로 사진을 확인합니다.
+     * 사진이 모두 없으면 대체 영역을 그대로 표시합니다.
+     * 파일명은 각 img의 data-photo에서 수정하세요.
+     */
+    document.querySelectorAll("img[data-photo]").forEach((img) => {
+      const extensions = ["jpg", "jpeg", "png"];
+      const fallback = img.parentElement.querySelector(".photo-fallback");
+      let index = 0;
+
+      img.addEventListener("load", () => {
+        img.hidden = false;
+        fallback.hidden = true;
+      });
+
+      img.addEventListener("error", () => {
+        img.hidden = true;
+        fallback.hidden = false;
+        loadNext();
+      });
+
+      function loadNext() {
+        if (index >= extensions.length) return;
+
+        const extension = extensions[index++];
+        img.src = `${img.dataset.photo}.${extension}`;
+      }
+
+      loadNext();
+    });
+  </script>
+</body>
+</html>
